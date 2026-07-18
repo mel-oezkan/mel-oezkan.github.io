@@ -1,1 +1,43 @@
-Hello World
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="content">
+
+    <div class="topbar">
+        <p id="my-name">⛺ Melih Özkan</p>
+
+        <div class="navi">
+            <p>About</p>
+            <p>Blog</p>
+            <p>Projects</p>
+            <p>CV</p>
+            <p>GitHub</p>
+
+            <label>
+                <input type="checkbox" name="toggle-color-scheme">
+                <span>Toggle color-scheme</span>
+            </label>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const toggle = document.querySelector('[name="toggle-color-scheme"]');
+    const root = document.documentElement;
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const applyTheme = () => {
+        root.dataset.theme = toggle.checked ? 'dark' : 'light';
+    };
+
+    toggle.checked = media.matches;
+    applyTheme();
+    toggle.addEventListener('change', applyTheme);
+</script>
+
+</body>
+</html>
